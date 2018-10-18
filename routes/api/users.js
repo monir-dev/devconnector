@@ -104,11 +104,13 @@ router.post("/login", (req, res) => {
           avatar: user.avatar
         };
 
+        // return res.json(payload);
+
         // Sign token
         jwt.sign(
           payload,
           keys.secretOrKey,
-          { expiresIn: 60 * 60 },
+          { expiresIn: 60 * 60 * 24 },
           (err, token) => {
             res.json({
               success: true,
