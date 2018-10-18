@@ -14,14 +14,6 @@ const validateLoginInput = require("../../validation/login");
 
 const router = express.Router();
 
-router.get("/test", (req, res) => {
-  res.json({ msg: "users works" });
-});
-
-router.get("/monir", (req, res) => {
-  res.json({ ok: "ok" });
-});
-
 // @route  POST api/users/register
 // @desc   Register a user
 // @access Public
@@ -103,8 +95,6 @@ router.post("/login", (req, res) => {
           email: user.email,
           avatar: user.avatar
         };
-
-        // return res.json(payload);
 
         // Sign token
         jwt.sign(
