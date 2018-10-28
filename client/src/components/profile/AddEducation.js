@@ -66,7 +66,7 @@ export class AddEducation extends Component {
               <Link to="/dashboard" className="btn btn-light">
                 Go Back
               </Link>
-              <h1 className="display-4 text-center">Add Your Experience</h1>
+              <h1 className="display-4 text-center">Add Your Education</h1>
               <p className="lead text-center">
                 Add any school, bootcamp, etc that you have attended
               </p>

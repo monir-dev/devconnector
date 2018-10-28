@@ -101,7 +101,7 @@ router.post("/", passport.authenticate("jwt", { session: false }), function(
 });
 
 // @route  DELETE api/profile
-// @desc   DELETE user and profiel
+// @desc   DELETE user and profile
 // @access Private
 router.delete(
   "/",
@@ -266,7 +266,7 @@ router.delete(
       // get remove index
       const removeIndex = profile.education
         .map(item => item.id)
-        .indexOf(req.params.exp_id);
+        .indexOf(req.params.edu_id);
 
       // Splice out of the array
       profile.education.splice(removeIndex, 1);
