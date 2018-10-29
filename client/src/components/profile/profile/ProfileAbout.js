@@ -10,8 +10,8 @@ const ProfileAbout = props => {
   // skills
   const skills = isEmpty(profile.skills)
     ? null
-    : profile.skills.map(skill => (
-        <div className="p-3">
+    : profile.skills.map((skill, index) => (
+        <div key={index} className="p-3">
           <i className="fa fa-check" /> {skill}
         </div>
       ));
