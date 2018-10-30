@@ -23,6 +23,7 @@ import AddExperience from "./components/profile/AddExperience";
 import AddEducation from "./components/profile/AddEducation";
 import Profiles from "./components/profile/Profiles";
 import Profile from "./components/profile/profile/Profile";
+import Posts from "./components/posts/Posts";
 import NotFound from "./components/not-found/NotFound";
 
 import "./App.css";
@@ -57,13 +58,16 @@ class App extends Component {
             <Navbar />
 
             <Route exact path="/" component={Landing} />
-            <div className="container">
+            <div className="container" style={{ paddingBottom: "70px" }}>
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:handle" component={Profile} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/feed" component={Posts} />
               </Switch>
               <Switch>
                 <PrivateRoute
@@ -93,6 +97,7 @@ class App extends Component {
                   component={AddEducation}
                 />
               </Switch>
+
               <Route exact path="/not-found" component={NotFound} />
             </div>
 

@@ -13,9 +13,8 @@ const SelectListGroup = ({
   options
 }) => {
   const selectOptions = options.map(option => {
-    const selected = option.value === value ? "selected" : "";
     return (
-      <option key={option.label} value={option.value} selected={selected}>
+      <option key={option.label} value={option.value}>
         {option.label}
       </option>
     );
@@ -26,6 +25,7 @@ const SelectListGroup = ({
         className={classnames("form-control form-control-lg", {
           "is-invalid": error
         })}
+        value={value ? value : ""}
         placeholder={placeholder}
         name={name}
         onChange={onChange}

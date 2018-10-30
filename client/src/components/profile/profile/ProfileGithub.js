@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import axios from "axios";
 
 class ProfileGithub extends Component {
   constructor(props) {
     super(props);
     this.state = {
       clientId: "045b23dc2dd52c28cebd",
-      clientSecret: "7be8f671870f46ae928918bb2234f0415c74f609",
+      clientSecret: "a559bfdf1b6c93e792d8c15fe6324d37cbc484be",
       count: 5,
       sort: "created:asc",
       repos: []
@@ -16,15 +15,15 @@ class ProfileGithub extends Component {
   componentDidMount() {
     const { username } = this.props;
     const { clientId, clientSecret, count, sort } = this.state;
-    axios
-      .get(
-        `https://api.github.com/users/${username}/repos?per_page=${count}&sort=${sort}&client_id=${clientId}&client_secret=${clientSecret}`
-      )
-      .then(res => {
-        // if (this.refs.myRef) {
-        //   this.setState({ repos: res.data });
-        // }
-        this.setState({ repos: res.data });
+
+    fetch(
+      `https://api.github.com/users/${username}/repos?per_page=${count}&sort=${sort}&client_id=${clientId}&client_secret=${clientSecret}`
+    )
+      .then(res => res.json())
+      .then(data => {
+        if (this.refs.myRef) {
+          this.setState({ repos: data });
+        }
       })
       .catch(err => console.log(err));
   }
@@ -37,7 +36,12 @@ class ProfileGithub extends Component {
         <div className="row">
           <div className="col-md-6">
             <h4>
-              <a href={repo.html_url} className="text-info" target="_blank">
+              <a
+                href={repo.html_url}
+                className="text-info"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {repo.name}
               </a>
             </h4>
