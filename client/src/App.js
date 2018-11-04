@@ -24,6 +24,7 @@ import AddEducation from "./components/profile/AddEducation";
 import Profiles from "./components/profile/Profiles";
 import Profile from "./components/profile/profile/Profile";
 import Posts from "./components/posts/Posts";
+import Post from "./components/posts/Post";
 import NotFound from "./components/not-found/NotFound";
 
 import "./App.css";
@@ -82,6 +83,9 @@ class App extends Component {
                   path="/edit-profile"
                   component={EditProfile}
                 />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/post/:id" component={Post} />
               </Switch>
               <Switch>
                 <PrivateRoute
